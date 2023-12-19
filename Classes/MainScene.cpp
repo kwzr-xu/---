@@ -4,6 +4,7 @@
 
 using namespace cocos2d;
 
+// 创建游戏的主场景。
 Scene* MainScene::scene()
 {
     Scene* scene = Scene::create();
@@ -14,6 +15,7 @@ Scene* MainScene::scene()
     return scene;
 }
 
+// 初始化主场景。
 bool MainScene::init()
 {
     if (!Layer::init())
@@ -25,17 +27,20 @@ bool MainScene::init()
     auto visibleSize = director->getVisibleSize();
     auto origin = director->getVisibleOrigin();
 
+    // 创建并设置背景图像。
     auto background = Sprite::create("main.jpg");
     background->setAnchorPoint(Vec2(0, 0));
     background->setPosition(Point(0, 0));
 
+    // 根据屏幕尺寸调整背景图像大小。
     float x = visibleSize.width / background->getContentSize().width;
     float y = visibleSize.height / background->getContentSize().height;
     background->setScale(x, y);
 
     this->addChild(background, 1);
 
-    // 三个按钮 “冒险模式”“设置”“关于”
+    // 创建游戏的按钮 - “冒险模式”、“设置”、“关于”。
+    // 正常、选中、禁用状态的按钮图像。
     Sprite* newGameNormal = Sprite::create("Button/newGameButton.png", Rect(0, 0, singalWidth1, singalHeight1));
     Sprite* newGameSelected = Sprite::create("Button/newGameButton.png", Rect(0, singalHeight1, singalWidth1, singalHeight1));
     Sprite* newGameDisabled = Sprite::create("Button/newGameButton.png", Rect(0, singalHeight1 * 2, singalWidth1, singalHeight1));
@@ -48,6 +53,7 @@ bool MainScene::init()
     Sprite* aboutSelected = Sprite::create("Button/otherButton.png", Rect(singalWidth2, singalHeight2, singalWidth2, singalHeight2));
     Sprite* aboutDesabled = Sprite::create("Button/otherButton.png", Rect(singalWidth2, singalHeight2 * 2, singalWidth2, singalHeight2));
 
+    // 为每个按钮配置回调函数。
     MenuItemSprite* newGame = MenuItemSprite::create(newGameNormal, newGameSelected, newGameDisabled,
         CC_CALLBACK_1(MainScene::onNewGame, this));
 
@@ -59,21 +65,22 @@ bool MainScene::init()
         CC_CALLBACK_1(MainScene::onAbout, this));
     about->setTag(21);
 
+    // 设置按钮位置。
     newGame->setPosition(Point(visibleSize.width / 2, 100));
     gameSetting->setPosition(Point(visibleSize.width / 4, visibleSize.height / 3));
     about->setPosition(Point(visibleSize.width / 4 * 3, visibleSize.height / 3));
 
+    // 将按钮添加到菜单并添加到场景。
     Menu* menu = Menu::create(newGame, gameSetting, about, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 2, 2);
 
-    //**处之后加条件来开关音乐
-    //if (**)
-    //{
+    // 添加背景音乐，根据条件可开关。
+    // if (音乐开关条件)
+    // {
     int mainMusicAudio = AudioEngine::play2d("Music/BGM.mp3");
     AudioEngine::setVolume(mainMusicAudio, 1);
-
-    //}
+    // }
 
     return true;
 }
