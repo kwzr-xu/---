@@ -7,20 +7,11 @@
 class MainScene : public cocos2d::Layer
 {
 private:
-    //∞¥≈•≥ﬂ¥Á–≈œ¢
-    float singalHeight1 = 88;
-    float singalWidth1 = 300;
-    float singalHeight2 = 63;
-    float singalWidth2 = 83;
 public:
 
     virtual bool init();
 
     static cocos2d::Scene* scene();
-
-    void onNewGame(Ref* pSender);
-    void onAbout(Ref* pSender);
-    void onSettings(Ref* pSender);
 
     CREATE_FUNC(MainScene);
 };

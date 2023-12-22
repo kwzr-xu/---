@@ -1,7 +1,7 @@
 #include "DynamicDt.h"
 
 // 初始化静态实例指针为 nullptr
-CDynamicDt* CDynamicDt::m_pInstance = nullptr;
+CDynamicDt* CDynamicDt::pInstance = nullptr;
 
 // 构造函数
 CDynamicDt::CDynamicDt()
@@ -14,8 +14,8 @@ CDynamicDt::~CDynamicDt() {
 
 // 获取单例实例
 CDynamicDt* CDynamicDt::getInstance() {
-    if (!m_pInstance) {
-        m_pInstance = new CDynamicDt(); // 若实例不存在，创建新实例
+    if (!pInstance) {
+        pInstance = new CDynamicDt(); // 若实例不存在，创建新实例
     }
-    return m_pInstance; // 返回实例
+    return pInstance; // 返回实例
 }

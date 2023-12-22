@@ -18,7 +18,7 @@ public:
 private:
     CDynamicDt();                                // 构造函数
     ~CDynamicDt();                               // 析构函数
-    static CDynamicDt* m_pInstance;              // 静态实例
+    static CDynamicDt* pInstance;              // 静态实例
 };
 
 #endif
