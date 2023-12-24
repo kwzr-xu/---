@@ -1,0 +1,7 @@
+{
+  "MainScene": {
+    "png": ["main.png", "newGameButton.png", "otherButton.png"],
+    "plist": [],
+    "audio": []
+  },
+}

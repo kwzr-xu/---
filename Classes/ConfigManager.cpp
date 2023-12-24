@@ -16,8 +16,8 @@ CDataController* ConfigManager::getData(string strName)
 	if (strName.empty()) {
 		return nullptr;
 	}
-	map<string, CDataController*>::iterator itor = DataMap.find(strName);
-	return itor->second;
+	map<string, CDataController*>::iterator iter = DataMap.find(strName);
+	return iter->second;
 }
 
 //ÉèÖÃÊı¾İ
