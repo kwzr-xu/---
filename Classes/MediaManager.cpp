@@ -4,7 +4,6 @@ MediaManager::MediaManager()
 {
 }
 
-//±éÀúÇå¿Õ
 MediaManager::~MediaManager()
 {
 	for (map<string, MediaData*>::iterator iter = DataMap.begin(); iter != DataMap.end(); ++iter) {

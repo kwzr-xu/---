@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __ConfigMgr_H__
-#define __ConfigMgr_H__
+#ifndef __ConfigManager_H__
+#define __ConfigManager_H__
 
 #include "DataBase.h"
 

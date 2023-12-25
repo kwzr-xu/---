@@ -3,6 +3,7 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include "MediaManager.h"
 
 /**
 @brief    The cocos2d Application.
@@ -35,7 +36,8 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+
+    void loadGameResources();
 };
 
 #endif // _APP_DELEGATE_H_
-
