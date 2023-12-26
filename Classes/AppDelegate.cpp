@@ -95,18 +95,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 void AppDelegate::loadGameResources()
 {
-	MediaManager* mediaMgr = MediaManager::getInstance();
+	CResDtMgr* mediaMgr = CResDtMgr::getInstance();
 	//加载不同文件资源
-	MediaData* mediaData = mediaMgr->getData("MainScene");
-
+	SResDt* mediaData = mediaMgr->getData("MainScene");
 	//加载PNG
-	for (const auto& png : mediaData->VecPng) {
+	for (const auto& png : mediaData->m_VecPng) {
 		Director::getInstance()->getTextureCache()->addImage(png);
 	}
 	//加载Plist
-	for (const auto& plist : mediaData->VecPlist) {
+	for (const auto& plist : mediaData->m_VecPlist) {
 		SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist);
 	}
+
 }
 
 // This function will be called when the app is inactive. Note, when receiving a phone call it is invoked.

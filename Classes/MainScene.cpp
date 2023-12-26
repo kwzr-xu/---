@@ -76,7 +76,7 @@ void MainScene::onNewGame(Ref* pSender)
 {
     AudioEngine::stopAll();
     Scene* scene = Scene::create();
-    //scene->addChild(GameMenu::create());
+    //scene->addChild(LevelMenu::create());
     Director::getInstance()->replaceScene(TransitionFade::create(1, scene));
 }
 

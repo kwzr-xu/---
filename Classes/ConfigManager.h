@@ -5,21 +5,23 @@
 #include "DataBase.h"
 
 //用于管理配置资源数据
-class ConfigManager
+class CConfigMgr
 {
 public:
     //获取ConfigManager中的实例
-    static ConfigManager* getInstance();
-
+    static CConfigMgr* getInstance();
+    
     //通过函数来获取数据和修改数据
-    void setData(string strName, CDataController* pDataController);
     CDataController* getData(string strName);
+    void setData(string strName, CDataController* pDataBaseMgr);
 
 private:
+    CConfigMgr();
+    ~CConfigMgr();
     //指向实例的指针
-    static ConfigManager* pInstance;
+    static CConfigMgr* m_pInstance;
     //用来存储数据配置
-    map<string, CDataController*> DataMap;
+    map<string, CDataController*> m_MapDatas;
 };
 
 #endif

@@ -15,25 +15,24 @@ USING_NS_CC;
 
 const int FilesNumber = 1; //资源文件的个数
 
-struct MediaData
+struct SResDt
 {
-	vector<string> VecPng;
-	vector<string> VecPlist;
-	vector<string> VecAudio;
+	vector<string> m_VecPng;
+	vector<string> m_VecPlist;
+	vector<string> m_VecAudio;
 };
 
-class MediaManager
+class CResDtMgr
 {
 public:
-	static MediaManager* getInstance();
+	static CResDtMgr* getInstance();
 	void loadFile(const string& strPath);
-	MediaData* getData(string strKey);
+	SResDt* getData(string strKey);
 private:
-	MediaManager();
-	~MediaManager();
-	map<string, MediaData*> DataMap;
-	static MediaManager* pInstance;
+	CResDtMgr();
+	~CResDtMgr();
+	map<string, SResDt*> m_MapData;
+	static CResDtMgr* m_pInstance;
 };
-
 #endif
 

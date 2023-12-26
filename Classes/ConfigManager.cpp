@@ -1,31 +1,37 @@
 #include"ConfigManager.h"
-ConfigManager* ConfigManager::pInstance = nullptr;
-
-ConfigManager* ConfigManager::getInstance()
+CConfigMgr* CConfigMgr::m_pInstance = nullptr;
+CConfigMgr::CConfigMgr()
 {
-	if (!pInstance)
+}
+
+CConfigMgr::~CConfigMgr()
+{
+}
+
+CConfigMgr* CConfigMgr::getInstance()
+{
+	if (!m_pInstance)
 	{
-		pInstance = new ConfigManager();
+		m_pInstance = new CConfigMgr();
 	}
-	return pInstance;
+	return m_pInstance;
 }
 
 //根据名字查找并获取数据
-CDataController* ConfigManager::getData(string strName)
+CDataController* CConfigMgr::getData(string strName)
 {
 	if (strName.empty()) {
 		return nullptr;
 	}
-	map<string, CDataController*>::iterator iter = DataMap.find(strName);
-	return iter->second;
+	map<string, CDataController*>::iterator itor = m_MapDatas.find(strName);
+	return itor->second;
 }
 
 //设置数据
-void ConfigManager::setData(string strName, CDataController* pDataController)
+void CConfigMgr::setData(string strName, CDataController* pDataBaseMgr)
 {
-	//查找所用参数出错
-	if (!pDataController || strName.empty()) {
+	if (strName.empty() || !pDataBaseMgr) {
 		return;
 	}
-	DataMap.insert(pair<string, CDataController*>(strName, pDataController));
+	m_MapDatas.insert(pair<string, CDataController*>(strName, pDataBaseMgr));
 }

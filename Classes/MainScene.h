@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif/*__MW_CPP_SYSMENU_H__*/
+#endif
