@@ -103,7 +103,6 @@ void AppDelegate::loadGameResources()
 	for (const auto& png : mediaData->VecPng) {
 		Director::getInstance()->getTextureCache()->addImage(png);
 	}
-
 	//¼ÓÔØPlist
 	for (const auto& plist : mediaData->VecPlist) {
 		SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist);
